@@ -1,0 +1,84 @@
+﻿@model Geakets.Models.GeaketViewModel
+@{
+    ViewBag.Title = "Add";
+}
+@section head{
+    @Url.JavascriptIncludeTag("jquery.validate.min.js")
+    @Url.JavascriptIncludeTag("jquery.validate.unobtrusive.min.js")
+    <script type="text/javascript">
+        var geaketCodeWatermark = 'Type geaket code here';
+
+        $(function () {
+            var editor = ace.edit("editor");
+            editor.setTheme("ace/theme/clouds");
+
+            editor.getSession().setValue($('#Code').val());
+            if (editor.getSession().getValue() == "") {
+                editor.getSession().setValue(geaketCodeWatermark);
+            }
+            editor.on('focus', function () {
+                if (editor.getSession().getValue() == geaketCodeWatermark) {
+                    editor.getSession().setValue('');
+                }
+            });
+            editor.on('blur', function () {
+                var editorValue = editor.getSession().getValue();
+                if (editorValue == "") {
+                    editor.getSession().setValue(geaketCodeWatermark);
+                }
+                $('#Code').val(editorValue == geaketCodeWatermark ? "" : editorValue);
+            });
+
+            $('#create_geaket').submit(function (e) {
+                var editorValue = editor.getSession().getValue();
+                $('#Code').val(editorValue == geaketCodeWatermark ? "" : editorValue);
+
+                if ($('#Code').val() == "") {
+                    $('#editor').addClass('input-validation-error');
+                }
+                else {
+                    $('#editor').removeClass('input-validation-error');
+                }
+            });
+
+            $('#Name').watermark("Your Name");
+            $('#Email').watermark("Your Email (not shown)");
+            $('#Title').watermark("Geaket Title");
+
+            $("input[type=submit]").button();
+        });
+    </script>
+}
+@using (Html.BeginForm("Create", "Geakets", FormMethod.Post, new { @id = "create_geaket" }))
+{
+    <div class="ui-widget ui-corner-all" style="">
+        <div class="ui-widget-header ui-corner-all" style="">
+            <span>New Geaket</span>
+        </div>
+        <div class="ui-widget-content-no-border" style="">
+            @Html.ValidationSummary(true)
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Email)
+                @Html.ValidationMessageFor(model => model.Email)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Title)
+                @Html.ValidationMessageFor(model => model.Title)
+            </div>
+            <div class="editor-field">
+                <pre id="editor" style="background-color: #E8E8E8; border: 1px solid #aaa;"></pre>
+                <div style="text-align: right;">
+                    @Html.HiddenFor(model => model.Code)
+                    @Html.ValidationMessageFor(model => model.Code)
+                </div>
+            </div>
+            <div class="editor-field">
+                <input type="submit" value="Create" />
+            </div>
+        </div>
+    </div>
+}

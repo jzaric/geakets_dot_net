@@ -1,47 +1,56 @@
+html, body
+{
+    margin: 0;
+    padding: 0;
+}
+
 body
 {
     font-size: .85em;
-    font-family: "Trebuchet MS", Verdana, Helvetica, Sans-Serif;
+    font-family: "Trebuchet MS" , Verdana, Helvetica, Sans-Serif;
     color: #232323;
     background-color: #fff;
 }
 
-header,
-footer,
-nav,
-section {
+header, footer, nav, section
+{
     display: block;
+}
+
+.clear
+{
+    clear: both;
 }
 
 /* Styles for basic forms
 -----------------------------------------------------------*/
 
-fieldset 
+fieldset
 {
-    border:1px solid #ddd;
-    padding:0 1.4em 1.4em 1.4em;
-    margin:0 0 1.5em 0;
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
 }
 
-legend 
+legend
 {
-    font-size:1.2em;
+    font-size: 1.2em;
     font-weight: bold;
 }
 
-textarea 
+textarea
 {
     min-height: 75px;
 }
 
-.editor-label 
+.editor-label
 {
     margin: 1em 0 0 0;
 }
 
-.editor-field 
+.editor-field
 {
-    margin:0.5em 0 0 0;
+    margin: 0.5em 0 0 0;
 }
 
 
@@ -59,7 +68,7 @@ textarea
 
 .input-validation-error
 {
-    border: 1px solid #ff0000;
+    border: 1px solid #ff0000 !important;
     background-color: #ffeeee;
 }
 
@@ -72,4 +81,74 @@ textarea
 .validation-summary-valid
 {
     display: none;
+}
+
+/* Styles for _Layout
+-----------------------------------------------------------*/
+
+.wrapper
+{
+    margin: 0 auto;
+    width: 960px; /*border-left: 1px solid Gray;     border-right: 1px solid Gray;*/
+}
+
+.header
+{
+    padding: 0;
+    /*border-bottom: 1px solid Gray;*/
+}
+
+.content
+{
+    padding: 0 10px;
+    /*background-color: Red;*/
+}
+
+.content > div
+{
+}
+
+.left_column
+{
+    float: left;
+    width: 630px;
+    /*background-color: Green;*/
+}
+
+.right_column
+{
+    float: right;
+    margin-left: 10px;
+    width: 300px;
+}
+
+.ui-widget
+{
+    padding: 2px;
+}
+
+.ui-widget-header
+{
+    padding: .4em 1em;
+}
+
+.ui-widget-content-no-border
+{
+    margin: 10px 0 0 0;
+    /*padding: 8px;*/
+}
+
+/* Styles for Create Geaket
+-----------------------------------------------------------*/
+
+#editor
+{
+    width: 100%;
+    height: 315px;
+    margin: 0;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
