@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 11/07/2011 00:17:01
+-- Date Created: 11/08/2011 01:55:05
 -- Generated from EDMX file: C:\projects\geakets_dot_net\Geakets\Models\Entities.edmx
 -- --------------------------------------------------
 
@@ -46,6 +46,7 @@ CREATE TABLE [dbo].[Geakets] (
     [ParentId] int  NULL,
     [Title] nvarchar(max)  NOT NULL,
     [Code] nvarchar(max)  NOT NULL,
+    [ViewCount] int  NOT NULL,
     [UpdatedAt] datetime  NOT NULL,
     [CreatedAt] datetime  NOT NULL
 );

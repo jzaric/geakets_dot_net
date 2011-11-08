@@ -22,6 +22,17 @@ header, footer, nav, section
     clear: both;
 }
 
+a
+{
+    color: #3B5998;
+    text-decoration: none;
+}
+
+a:hover
+{
+    text-decoration: underline;
+}
+
 /* Styles for basic forms
 -----------------------------------------------------------*/
 

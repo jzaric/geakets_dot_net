@@ -147,15 +147,17 @@ namespace Geakets.Models
         /// <param name="userId">Initial value of the UserId property.</param>
         /// <param name="title">Initial value of the Title property.</param>
         /// <param name="code">Initial value of the Code property.</param>
+        /// <param name="viewCount">Initial value of the ViewCount property.</param>
         /// <param name="updatedAt">Initial value of the UpdatedAt property.</param>
         /// <param name="createdAt">Initial value of the CreatedAt property.</param>
-        public static Geaket CreateGeaket(global::System.Int32 id, global::System.Int32 userId, global::System.String title, global::System.String code, global::System.DateTime updatedAt, global::System.DateTime createdAt)
+        public static Geaket CreateGeaket(global::System.Int32 id, global::System.Int32 userId, global::System.String title, global::System.String code, global::System.Int32 viewCount, global::System.DateTime updatedAt, global::System.DateTime createdAt)
         {
             Geaket geaket = new Geaket();
             geaket.Id = id;
             geaket.UserId = userId;
             geaket.Title = title;
             geaket.Code = code;
+            geaket.ViewCount = viewCount;
             geaket.UpdatedAt = updatedAt;
             geaket.CreatedAt = createdAt;
             return geaket;
@@ -286,6 +288,30 @@ namespace Geakets.Models
         private global::System.String _Code;
         partial void OnCodeChanging(global::System.String value);
         partial void OnCodeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 ViewCount
+        {
+            get
+            {
+                return _ViewCount;
+            }
+            set
+            {
+                OnViewCountChanging(value);
+                ReportPropertyChanging("ViewCount");
+                _ViewCount = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ViewCount");
+                OnViewCountChanged();
+            }
+        }
+        private global::System.Int32 _ViewCount;
+        partial void OnViewCountChanging(global::System.Int32 value);
+        partial void OnViewCountChanged();
     
         /// <summary>
         /// No Metadata Documentation available.

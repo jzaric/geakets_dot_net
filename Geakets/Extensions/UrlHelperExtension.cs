@@ -23,7 +23,7 @@ namespace System.Web.Mvc
 
         public static MvcHtmlString GeaketUrl(this UrlHelper helper, int geaketId, string title)
         {
-            return new MvcHtmlString(helper.RouteUrl("Geaket", new { id = geaketId, title = title.ToLower().Replace(" ", "-") }));
+            return new MvcHtmlString(helper.RequestContext.HttpContext.Request.Url.Scheme + "://" + helper.RequestContext.HttpContext.Request.Url.Host + helper.RouteUrl("Details", new { controller = "Geakets", id = geaketId, title = title.ToLower().Replace(" ", "-") }));
             //return new MvcHtmlString(string.Format("{0}/geakets/{1}/{2}", helper.RequestContext.HttpContext.Request.Url.GetLeftPart(UriPartial.Authority), geaketId, title.ToLower().Replace(" ", "-")));
         }
 

@@ -22,16 +22,34 @@ namespace Geakets
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
-                "Geaket",
-                "geakets/{id}/details/{title}",
-                new { controller = "Geakets", action = "Details", title = UrlParameter.Optional }
+                "Pages",
+                "{action}",
+                new { controller = "Pages" }
             );
 
             routes.MapRoute(
-                "Default", // Route name
-                "{controller}/{action}/{id}", // URL with parameters
-                new { controller = "Home", action = "Index", id = UrlParameter.Optional } // Parameter defaults
+                "List",
+                "{controller}",
+                new { controller = "Geakets", action = "List" }
             );
+
+            routes.MapRoute(
+                "Create",
+                "{controller}/create",
+                new { action = "Create" }
+            );
+
+            routes.MapRoute(
+                "Details",
+                "{controller}/{id}/{title}",
+                new { controller = "Geakets", action = "Details" }
+            );
+
+            //routes.MapRoute(
+            //    "Default", // Route name
+            //    "{controller}/{action}/{id}", // URL with parameters
+            //    new { controller = "Geakets", action = "List", id = UrlParameter.Optional } // Parameter defaults
+            //);
         }
 
         protected void Application_Start()

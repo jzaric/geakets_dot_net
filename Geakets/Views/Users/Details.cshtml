@@ -1,0 +1,49 @@
+﻿@model List<Geakets.Models.Geaket>
+@{
+    ViewBag.Title = ViewBag.UserName + " | Latest Geakets";
+}
+<script type="text/javascript">
+    $(function () {
+        $('.geaket:odd').css({ backgroundColor: "whitesmoke" });
+    });
+</script>
+<div class="ui-widget ui-corner-all" style="">
+    <div class="ui-widget-header ui-corner-all" style="">
+        <span>@ViewBag.Title</span>
+    </div>
+    <div class="ui-widget-content-no-border" style="">
+        @foreach (var g in Model)
+        {
+            @Html.Partial("Geaket", g)
+        }
+        <center>
+            <form action="" method="get">
+                <input id="page" name="page" type="hidden" value="" />
+            </form>
+            <div id="pagination" style="text-align: center;">
+            </div>
+            <script type="text/javascript">
+                $(function () {
+                    $("#pagination").paginate({
+                        count: @ViewBag.PageCount,
+                        start: @ViewBag.CurrentPage,
+                        display: @ViewBag.PageSize,
+                        border: true,
+                        border_color: '#aaa',
+                        text_color: '#222',
+                        background_color: '#ccc',
+                        border_hover_color: '#ccc',
+                        text_hover_color: '#222',
+                        background_hover_color: '#aaa',
+                        rotate: false,
+                        images: false,
+                        mouse: 'press',
+                        onChange: function (page) {
+                            $('#page').val(page).parent().submit();
+                        }
+                    });
+                });
+            </script>
+        </center>
+    </div>
+</div>

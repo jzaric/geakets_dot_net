@@ -14,22 +14,20 @@ namespace Geakets.Controllers
         //
         // GET: /Users/
 
-        public ActionResult Create()
+        public ActionResult Details(int id, int? page)
         {
-            return View();
-        }
+            ViewBag.PageSize = 10;
 
-        [HttpPost]
-        public ActionResult Create(User model)
-        {
-            model.UpdatedAt = model.CreatedAt = DateTime.UtcNow;
-            if (ModelState.IsValid)
-            {
-                dataContext.Users.AddObject(model);
-                dataContext.SaveChanges();
-            }
-            return View();
-        }
+            page = page ?? 1;
+            int take = ViewBag.PageSize;
+            int skip = (int)page * take - take;
 
+            ViewBag.PageCount = (int)Math.Ceiling((double)dataContext.Geakets.Where(g => g.UserId == id).Count() / take);
+            ViewBag.CurrentPage = page;
+
+            ViewBag.UserName = dataContext.Users.Where(u => u.Id == id).Select(u => u.Name).FirstOrDefault() ?? "Unknown";
+
+            return View(dataContext.Geakets.Where(g => g.UserId == id).OrderByDescending(g => g.UpdatedAt).Skip(skip).Take(take).ToList());
+        }
     }
 }

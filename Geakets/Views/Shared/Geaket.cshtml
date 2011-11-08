@@ -1,0 +1,30 @@
+﻿@model Geakets.Models.Geaket
+@{
+    var g = Model;
+}
+<div style="margin: 0 0 10px 0; padding: 10px; font-size: 12px;" class="geaket ui-widget ui-corner-all">
+    <div style="float: left; font-size: 1.5em;">
+        <a href="@(Url.GeaketUrl(g.Id, g.Title))">@g.Title</a></div>
+    <div style="float: right;">@g.UpdatedAt.TimeAgoInWords()</div>
+    <div class="clear">
+    </div>
+    <pre style="background-color: transparent; overflow: auto; clear: both; margin: 5px 0; font-size: 1.3em;" class="prettyprint">@g.Code</pre>
+    <div style="float: left;">
+        <span>views(@g.ViewCount) | <a href="@(Url.GeaketUrl(g.Id, g.Title))">comments</a></span>
+        <!-- AddThis Button BEGIN -->
+        <div addthis:url="@(Url.GeaketUrl(g.Id, g.Title))" class="addthis_toolbox addthis_default_style" style="display: block; margin-top: 5px;">
+            <a class="addthis_counter addthis_pill_style"></a>
+        </div>
+        <script type="text/javascript">            var addthis_config = { "data_track_clickback": true, "ui_click": true };</script>
+        <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4eb6cefd5fb095db"></script>
+        <!-- AddThis Button END -->
+    </div>
+    <a href="@Url.Action("Details", "Users", new { @id = g.User.Id, title = g.User.Name.ToLower().Replace(" ", "-") })" style="float: right; display: block;">
+        <img src="@(Url.GravatarUrl(g.User.Email, 32))" alt="@g.User.Name" style="float: left;" />
+        <div style="margin-left: 37px; font-size: 12px; line-height: 16px;">@g.User.Name</div>
+        <div style="margin-left: 37px; font-size: 12px; line-height: 16px;">
+            geakets(@g.User.Geakets.Count())</div>
+    </a>
+    <div class="clear">
+    </div>
+</div>

@@ -26,6 +26,7 @@
     <Property Name="ParentId" Type="int" Nullable="true" />
     <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Code" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ViewCount" Type="int" Nullable="false" />
     <Property Name="UpdatedAt" Type="datetime" Nullable="false" />
     <Property Name="CreatedAt" Type="datetime" Nullable="false" />
   </EntityType>
@@ -88,6 +89,7 @@
           <Property Name="ParentId" Type="Int32" />
           <Property Type="String" Name="Title" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Code" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Type="Int32" Name="ViewCount" Nullable="false" />
           <Property Name="UpdatedAt" Type="DateTime" Nullable="false" />
           <Property Name="CreatedAt" Type="DateTime" Nullable="false" />
           <NavigationProperty Name="User" Relationship="GeaketsModel.FK_Geakets_Users" FromRole="Geakets" ToRole="Users" />
@@ -143,6 +145,7 @@
           <ScalarProperty Name="ParentId" ColumnName="ParentId" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="ViewCount" ColumnName="ViewCount" />
           <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
           <ScalarProperty Name="CreatedAt" ColumnName="CreatedAt" />
         </MappingFragment>

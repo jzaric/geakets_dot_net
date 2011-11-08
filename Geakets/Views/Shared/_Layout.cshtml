@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>@ViewBag.Title</title>
+    <title>Geakets | @ViewBag.Title</title>
     @Url.StylesheetLinkTag("Site.css")
     @Url.StylesheetLinkTag("themes/base/jquery.ui.all.css")
     @Url.StylesheetLinkTag("prettify.css")
@@ -20,14 +20,25 @@
         });
     </script>
     @RenderSection("head", false)
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-26869918-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
 </head>
 <body>
     <div class="header">
         <div class="wrapper">
-            <div class="content">
-                <a href="@Url.Action("Index", "Home")">
+            <div class="content" style="position: relative;">
+                <a href="@Url.Action("List", "Geakets")">
                     <img src="@Url.Content("~/Content/images/logo.png")" alt="logo" style="border: none;" />
-                </a>
+                </a><a href="@Url.Action("About", "Pages")" style="position: absolute; top: 10px; right: 10px;">What is this?</a>
             </div>
         </div>
     </div>
@@ -53,7 +64,7 @@
                 @RenderBody()
             </div>
             <div class="right_column">
-                @Html.ActionLink("Add Geaket!", "Create", "Geakets", null, new { @class = "button", @style = "width: 100%; font-weight: bold;" })
+                @Html.ActionLink("Add Geaket!", "Create", "Geakets", null, new { @class = "button", @style = "width: 100%; font-weight: bold; color: #F05A22; border-color: #F05A22;" })
                 <div style="margin-top: 10px;">
                     <iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fapps%2Fapplication.php%3Fid%3D160901977301120&amp;width=300&amp;colorscheme=light&amp;show_faces=true&amp;stream=false&amp;header=true&amp;height=290" scrolling="no" frameborder="0" style="border: none; overflow: hidden; width: 300px; height: 290px;" allowtransparency="true"></iframe>
                 </div>
@@ -62,5 +73,8 @@
             </div>
         </div>
     </div>
+    <a href="https://github.com/jzaric/geakets_dot_net" target="_blank">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/71eeaab9d563c2b3c590319b398dd35683265e85/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub">
+    </a>
 </body>
 </html>

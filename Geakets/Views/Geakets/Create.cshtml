@@ -1,6 +1,6 @@
 ﻿@model Geakets.Models.GeaketViewModel
 @{
-    ViewBag.Title = "Add";
+    ViewBag.Title = "New Geaket";
 }
 @section head{
     @Url.JavascriptIncludeTag("jquery.validate.min.js")
@@ -53,7 +53,7 @@
 {
     <div class="ui-widget ui-corner-all" style="">
         <div class="ui-widget-header ui-corner-all" style="">
-            <span>New Geaket</span>
+            <span>@ViewBag.Title</span>
         </div>
         <div class="ui-widget-content-no-border" style="">
             @Html.ValidationSummary(true)
