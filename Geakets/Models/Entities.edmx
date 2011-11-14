@@ -36,7 +36,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="255" />
-    <Property Name="Email" Type="char" Nullable="false" MaxLength="255" />
+    <Property Name="Email" Type="varchar" Nullable="false" MaxLength="255" />
     <Property Name="UpdatedAt" Type="datetime" Nullable="false" />
     <Property Name="CreatedAt" Type="datetime" Nullable="false" />
   </EntityType>
@@ -102,7 +102,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="Name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
           <Property Name="UpdatedAt" Type="DateTime" Nullable="false" />
           <Property Name="CreatedAt" Type="DateTime" Nullable="false" />
           <NavigationProperty Name="Geakets" Relationship="GeaketsModel.FK_Geakets_Users" FromRole="Users" ToRole="Geakets" />

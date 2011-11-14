@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 11/08/2011 01:55:05
+-- Date Created: 11/08/2011 04:10:05
 -- Generated from EDMX file: C:\projects\geakets_dot_net\Geakets\Models\Entities.edmx
 -- --------------------------------------------------
 
@@ -56,7 +56,7 @@ GO
 CREATE TABLE [dbo].[Users] (
     [Id] int IDENTITY(1,1) NOT NULL,
     [Name] nvarchar(255)  NOT NULL,
-    [Email] char(255)  NOT NULL,
+    [Email] varchar(255)  NOT NULL,
     [UpdatedAt] datetime  NOT NULL,
     [CreatedAt] datetime  NOT NULL
 );
